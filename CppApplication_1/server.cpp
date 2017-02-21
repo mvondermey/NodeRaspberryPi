@@ -47,7 +47,7 @@ server::server() {
      if (n < 0) perror("ERROR writing to socket");
      close(newsockfd);
      close(sockfd);
-     return 0; 
+   
     //
 }
 
