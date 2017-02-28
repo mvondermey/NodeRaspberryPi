@@ -21,7 +21,11 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <netdb.h> 
+#include <netdb.h>
+#include <algorithm>
+#include "rapidjson/document.h"
+#include "rapidjson/error/en.h"
+
 
 class client {
 public:

@@ -12,6 +12,7 @@
  */
 
 #include <cstdlib>
+#include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/client.h>
 
 using namespace std;
 
@@ -20,6 +21,13 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
+    
+    printf("Main\n");
+    
+    client myClient ;
+    
+    printf("After client\n");
+    
     return 0;
 }
 
