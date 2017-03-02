@@ -16,12 +16,15 @@
 BroadcastSender::BroadcastSender() {
     int sock;                         /* Socket */
     struct sockaddr_in broadcastAddr; /* Broadcast address */
+    struct sockaddr addr;
     char *broadcastIP;                /* IP broadcast address */
     unsigned short broadcastPort;     /* Server port */
     char *sendString;                 /* String to broadcast */
     int broadcastPermission;          /* Socket opt to set permission to broadcast */
     unsigned int sendStringLen;       /* Length of string to broadcast */
-
+    socklen_t fromlen;
+    char buf[512];
+    int byte_count;
 
     broadcastIP = "255.255.255.255";            /* First arg:  broadcast IP address */ 
     broadcastPort = 8003;    /* Second arg:  broadcast port */
@@ -37,6 +40,10 @@ BroadcastSender::BroadcastSender() {
           sizeof(broadcastPermission)) < 0)
         printf("setsockopt() failed\n");
 
+    int flags = fcntl(sock, F_GETFL);
+    flags |= O_NONBLOCK;
+    fcntl(sock,F_SETFL,flags);
+    
     /* Construct local address structure */
     memset(&broadcastAddr, 0, sizeof(broadcastAddr));   /* Zero out structure */
     broadcastAddr.sin_family = AF_INET;                 /* Internet address family */
@@ -50,7 +57,10 @@ BroadcastSender::BroadcastSender() {
          if (sendto(sock, sendString, sendStringLen, 0, (struct sockaddr *) 
                &broadcastAddr, sizeof(broadcastAddr)) != sendStringLen)
              printf("sendto() sent a different number of bytes than expected\n");
-
+             byte_count = recvfrom(sock,buf, sizeof buf,0, &addr, &fromlen);
+             //
+             printf("Received %d bytes of data %s \n",byte_count,buf);
+             //
         sleep(3);   /* Avoids flooding the network */
     }
 }
