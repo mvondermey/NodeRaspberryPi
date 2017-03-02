@@ -13,6 +13,7 @@
 
 #include <cstdlib>
 #include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/client.h>
+#include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/BroadcastSender.h>
 
 using namespace std;
 
@@ -24,7 +25,8 @@ int main(int argc, char** argv) {
     
     printf("Main\n");
     
-    client myClient ;
+    //client myClient ;
+    BroadcastSender myBroadcastSender;
     
     printf("After client\n");
     

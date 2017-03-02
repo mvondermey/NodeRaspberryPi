@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/BroadcastReceiver.o \
+	${OBJECTDIR}/BroadcastSender.o \
 	${OBJECTDIR}/client.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/server.o
@@ -63,6 +65,16 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cppapplication_1: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cppapplication_1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/BroadcastReceiver.o: BroadcastReceiver.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BroadcastReceiver.o BroadcastReceiver.cpp
+
+${OBJECTDIR}/BroadcastSender.o: BroadcastSender.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BroadcastSender.o BroadcastSender.cpp
 
 ${OBJECTDIR}/client.o: client.cpp
 	${MKDIR} -p ${OBJECTDIR}

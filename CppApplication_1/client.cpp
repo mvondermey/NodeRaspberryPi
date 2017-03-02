@@ -26,8 +26,7 @@ client::client() {
     portno = 8081;
     
     printf("Opening port\n");
-    
-    
+    //
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) 
         perror("ERROR opening socket");
