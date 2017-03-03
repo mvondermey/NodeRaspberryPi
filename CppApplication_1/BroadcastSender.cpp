@@ -59,7 +59,7 @@ BroadcastSender::BroadcastSender() {
              printf("sendto() sent a different number of bytes than expected\n");
              byte_count = recvfrom(sock,buf, sizeof buf,0, &addr, &fromlen);
              //
-             printf("Received %d bytes of data %s \n",byte_count,buf);
+             if (byte_count > 0 ) printf("Received %d bytes of data %s \n",byte_count,buf);
              //
         sleep(3);   /* Avoids flooding the network */
     }

@@ -11,23 +11,39 @@
  * Created on February 21, 2017, 2:31 PM
  */
 
-#include <cstdlib>
+
 #include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/client.h>
 #include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/BroadcastSender.h>
+#include <stdlib.h>
+#include <iostream>    
 
 using namespace std;
 
 /*
  * 
  */
+
+void *BroadcastSenderF(void *tid){
+    //
+    BroadcastSender myBroadcastSender;
+    //
+}
+
+//
 int main(int argc, char** argv) {
 
+    pthread_t BroadcastSender;
+    const char *BroadcastSenderMessage1 = "BroadcastSender";
+    long tid;
     
     printf("Main\n");
     
     //client myClient ;
-    BroadcastSender myBroadcastSender;
-    
+    pthread_create(&BroadcastSender, NULL, BroadcastSenderF, (void *) tid); 
+    //
+    int input;
+    std::cin >> input ;
+    //
     printf("After client\n");
     
     return 0;
