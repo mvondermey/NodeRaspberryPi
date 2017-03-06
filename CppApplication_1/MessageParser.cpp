@@ -28,9 +28,16 @@ void  MessageParser::ParseMessage(std::string MessageToParse){
     //
     std::string json(MessageToParse);
     //
+    printf("Inside MessageParser \n");
     //
-    json.erase(json.find("<BOF>"),5);
-    json.erase(json.find("<EOF>"),5);
+    if (std::string::size_type pos = json.find(" ") != std::string::npos ) 
+        json.erase(pos,1);
+    if (std::string::size_type pos = json.find("<BOF>") != std::string::npos ) 
+        json.erase(pos,5);
+    if (std::string::size_type pos = json.find("<EOF>") != std::string::npos ) 
+        json.erase(pos,5);
+    //
+    printf("After MessageParser.erase \n");
     //
     printf("After erase: \n %s \n",json.c_str());
     //
@@ -45,5 +52,6 @@ void  MessageParser::ParseMessage(std::string MessageToParse){
     raspidjson:Value & results = document["Message"];
     std::string message = results.GetString();
     printf(" Message: %s \n",message.c_str());
+    //
     //
 }

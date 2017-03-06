@@ -15,6 +15,7 @@
 #define MESSAGEPARSER_H
 
 #include <stdio.h>
+#include <algorithm>
 #include "rapidjson/document.h"
 #include "rapidjson/error/en.h"
 
