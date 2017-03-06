@@ -6,6 +6,8 @@
                    projectFiles="true">
       <itemPath>BroadcastReceiver.h</itemPath>
       <itemPath>BroadcastSender.h</itemPath>
+      <itemPath>MessageParser.h</itemPath>
+      <itemPath>Singleton.h</itemPath>
       <itemPath>client.h</itemPath>
       <itemPath>server.h</itemPath>
     </logicalFolder>
@@ -18,6 +20,8 @@
                    projectFiles="true">
       <itemPath>BroadcastReceiver.cpp</itemPath>
       <itemPath>BroadcastSender.cpp</itemPath>
+      <itemPath>MessageParser.cpp</itemPath>
+      <itemPath>Singleton.cpp</itemPath>
       <itemPath>client.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>server.cpp</itemPath>
@@ -54,6 +58,14 @@
       <item path="BroadcastSender.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BroadcastSender.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MessageParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MessageParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Singleton.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Singleton.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="client.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -93,6 +105,14 @@
       <item path="BroadcastSender.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BroadcastSender.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MessageParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MessageParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Singleton.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Singleton.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="client.cpp" ex="false" tool="1" flavor2="0">
       </item>

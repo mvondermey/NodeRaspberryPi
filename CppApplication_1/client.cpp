@@ -58,28 +58,7 @@ client::client() {
          perror("ERROR reading from socket");
     printf("%s\n",buffer);
     //
-    std::string json(buffer);
-    //
-    //
-    //json ="{\"TimeStamp\":\"148828132992\",\"Message\":\"Beep\",\"UUID\":\"XLM\",\"Command\":\"\"}";
-    //json = "{\"a\":\"21\"}";
-    json.erase(json.find("<BOF>"),5);
-    json.erase(json.find("<EOF>"),5);
-    
-    //
-    printf("After erase: \n %s \n",json.c_str());
-    //
-    Document document;
-    document.Parse(json.c_str());
-    //
-    if ( document.HasParseError() ) {
-        printf("ParseError \n");
-        printf("Failed parsing json %s Offset: %d \n",GetParseError_En(document.GetParseError()),document.GetErrorOffset());
-    }
-        //
-    raspidjson:Value & results = document["Message"];
-    std::string message = results.GetString();
-    printf(" Message: %s \n",message.c_str());
+
     //
     close(sockfd);
 }
