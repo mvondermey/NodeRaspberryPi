@@ -21,7 +21,7 @@ BroadcastReceiver::BroadcastReceiver() {
     char recvString[MAXRECVSTRING+1]; /* Buffer for received string */
     int recvStringLen;                /* Length of received string */
 
-    broadcastPort = 8082;   /* First arg: broadcast port */
+    broadcastPort = 8002;   /* First arg: broadcast port */
 
     /* Create a best-effort datagram socket using UDP */
     if ((sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP)) < 0)

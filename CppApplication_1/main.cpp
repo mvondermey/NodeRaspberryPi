@@ -14,6 +14,7 @@
 
 #include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/client.h>
 #include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/BroadcastSender.h>
+#include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/BroadcastReceiver.h>
 #include <stdlib.h>
 #include <iostream>    
 
@@ -28,18 +29,26 @@ void *BroadcastSenderF(void *tid){
     BroadcastSender myBroadcastSender;
     //
 }
-
+//
+void *BroadcastReceiverF(void *tid){
+    //
+    BroadcastReceiver myBroadcastReceiver;
+    //
+}
 //
 int main(int argc, char** argv) {
 
     pthread_t BroadcastSender;
-    const char *BroadcastSenderMessage1 = "BroadcastSender";
-    long tid;
+    long tidS;
+  
+    pthread_t BroadcastReceiver;
+    long tidR;
     
     printf("Main\n");
-    
-    //client myClient ;
-    pthread_create(&BroadcastSender, NULL, BroadcastSenderF, (void *) tid); 
+   
+    //
+    pthread_create(&BroadcastSender, NULL, BroadcastSenderF, (void *) tidS); 
+    //pthread_create(&BroadcastReceiver, NULL, BroadcastReceiverF, (void *) tidR); 
     //
     int input;
     std::cin >> input ;

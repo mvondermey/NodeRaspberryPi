@@ -59,6 +59,9 @@ BroadcastSender::BroadcastSender() {
          if (sendto(sock, sendString, sendStringLen, 0, (struct sockaddr *) 
                &broadcastAddr, sizeof(broadcastAddr)) != sendStringLen)
              printf("sendto() sent a different number of bytes than expected\n");
+         //
+         printf("BroadcastSender.Sent %s \n",sendString);
+         //
              byte_count = recvfrom(sock,buf, sizeof buf,0, (struct sockaddr *)&addr, &fromlen);
              //
              if (byte_count > 0 ) {

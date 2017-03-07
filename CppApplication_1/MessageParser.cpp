@@ -48,7 +48,7 @@ void  MessageParser::ParseMessage(std::string MessageToParse){
         printf("ParseError \n");
         printf("Failed parsing json %s Offset: %d \n",GetParseError_En(document.GetParseError()),document.GetErrorOffset());
     }
-        //
+    //
     raspidjson:Value & results = document["Message"];
     std::string message = results.GetString();
     printf(" Message: %s \n",message.c_str());
