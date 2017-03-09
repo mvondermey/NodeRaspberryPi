@@ -14,6 +14,7 @@
 #include "BroadcastSender.h"
 #include "Singleton.h"
 #include "MessageParser.h"
+#include "MessageJSON.h"
 
 BroadcastSender::BroadcastSender() {
     int sock;                         /* Socket */
@@ -45,6 +46,9 @@ BroadcastSender::BroadcastSender() {
     int flags = fcntl(sock, F_GETFL);
     flags |= O_NONBLOCK;
     fcntl(sock,F_SETFL,flags);
+    
+       MessageJSON myJSON;
+    myJSON.GetJSON();
     
     /* Construct local address structure */
     memset(&broadcastAddr, 0, sizeof(broadcastAddr));   /* Zero out structure */

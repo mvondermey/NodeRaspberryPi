@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/BroadcastReceiver.o \
 	${OBJECTDIR}/BroadcastSender.o \
+	${OBJECTDIR}/MessageJSON.o \
 	${OBJECTDIR}/MessageParser.o \
 	${OBJECTDIR}/Singleton.o \
 	${OBJECTDIR}/client.o \
@@ -77,6 +78,11 @@ ${OBJECTDIR}/BroadcastSender.o: BroadcastSender.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BroadcastSender.o BroadcastSender.cpp
+
+${OBJECTDIR}/MessageJSON.o: MessageJSON.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MessageJSON.o MessageJSON.cpp
 
 ${OBJECTDIR}/MessageParser.o: MessageParser.cpp
 	${MKDIR} -p ${OBJECTDIR}

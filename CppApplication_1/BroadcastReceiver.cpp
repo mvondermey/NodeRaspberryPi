@@ -12,6 +12,7 @@
  */
 
 #include "BroadcastReceiver.h"
+#include "MessageJSON.h"
 
 BroadcastReceiver::BroadcastReceiver() {
     //
@@ -43,6 +44,8 @@ BroadcastReceiver::BroadcastReceiver() {
 
     recvString[recvStringLen] = '\0';
     printf("Received: %s\n", recvString);    /* Print the received string */
+    
+ 
     
     close(sock);
     //

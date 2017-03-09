@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>BroadcastReceiver.h</itemPath>
       <itemPath>BroadcastSender.h</itemPath>
+      <itemPath>MessageJSON.h</itemPath>
       <itemPath>MessageParser.h</itemPath>
       <itemPath>Singleton.h</itemPath>
       <itemPath>client.h</itemPath>
@@ -20,6 +21,7 @@
                    projectFiles="true">
       <itemPath>BroadcastReceiver.cpp</itemPath>
       <itemPath>BroadcastSender.cpp</itemPath>
+      <itemPath>MessageJSON.cpp</itemPath>
       <itemPath>MessageParser.cpp</itemPath>
       <itemPath>Singleton.cpp</itemPath>
       <itemPath>client.cpp</itemPath>
@@ -58,6 +60,10 @@
       <item path="BroadcastSender.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BroadcastSender.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MessageJSON.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MessageJSON.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="MessageParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -105,6 +111,10 @@
       <item path="BroadcastSender.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BroadcastSender.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MessageJSON.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MessageJSON.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="MessageParser.cpp" ex="false" tool="1" flavor2="0">
       </item>

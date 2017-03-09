@@ -20,6 +20,7 @@
 #include "rapidjson/error/en.h"
 
 
+
 class MessageParser {
 public:
     MessageParser();

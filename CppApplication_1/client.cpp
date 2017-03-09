@@ -46,21 +46,22 @@ client::client() {
         printf("Error \n");
     }
     printf("After connect \n");
+    //
     //printf("Please enter the message: \n");
     //bzero(buffer,256);
     //fgets(buffer,255,stdin);
     //n = write(sockfd,buffer,strlen(buffer));
     //if (n < 0) 
       //   perror("ERROR writing to socket");
+    //
     bzero(buffer,256);
     n = read(sockfd,buffer,255);
     if (n < 0) 
          perror("ERROR reading from socket");
     printf("%s\n",buffer);
     //
-
-    //
     close(sockfd);
+    //
 }
 
 client::client(const client& orig) {
