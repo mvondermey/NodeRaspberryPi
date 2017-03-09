@@ -12,10 +12,16 @@
  */
 
 #include <ios>
-
+#include <rapidjson/document.h>
+#include <rapidjson/stringbuffer.h>
+#include <rapidjson/writer.h>
 #include "MessageJSON.h"
 
+using namespace rapidjson;
+
 MessageJSON::MessageJSON() {
+    std::string Message;
+    std::string Command;
 }
 
 MessageJSON::MessageJSON(const MessageJSON& orig) {
@@ -24,7 +30,7 @@ MessageJSON::MessageJSON(const MessageJSON& orig) {
 MessageJSON::~MessageJSON() {
 }
 
-std::string MessageJSON::GetJSON(){
+std::string MessageJSON::GetJSON(std::string Message, std::string Command){
 //
     std::ifstream ifs("/etc/machine-id");
     std::string machineid;
@@ -36,11 +42,15 @@ std::string MessageJSON::GetJSON(){
     //
     //machineid.erase(machineid.length()-1);
     //
-    std::string json = "{\"UUID\":\""+machineid+"\"}";
+    rapidjson::Document json;
+    json.SetObject();
+    json.AddMember("UUID",Value(machineid.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
     //
-    std::cout << json << std::endl;
+    StringBuffer buffer;
+    Writer<StringBuffer> writer(buffer);
+    json.Accept(writer);
     //
-    return json;
+    return json.GetString();
     //
 }
 

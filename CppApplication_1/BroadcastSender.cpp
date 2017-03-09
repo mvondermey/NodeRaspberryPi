@@ -22,7 +22,7 @@ BroadcastSender::BroadcastSender() {
     struct sockaddr_in addr;
     char *broadcastIP;                /* IP broadcast address */
     unsigned short broadcastPort;     /* Server port */
-    char *sendString;                 /* String to broadcast */
+                     /* String to broadcast */
     int broadcastPermission;          /* Socket opt to set permission to broadcast */
     unsigned int sendStringLen;       /* Length of string to broadcast */
     socklen_t fromlen;
@@ -31,7 +31,7 @@ BroadcastSender::BroadcastSender() {
 
     broadcastIP = "255.255.255.255";            /* First arg:  broadcast IP address */ 
     broadcastPort = 8003;    /* Second arg:  broadcast port */
-    sendString = "Hello World";             /* Third arg:  string to broadcast */
+
 
     /* Create socket for sending/receiving datagrams */
     if ((sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP)) < 0)
@@ -47,8 +47,8 @@ BroadcastSender::BroadcastSender() {
     flags |= O_NONBLOCK;
     fcntl(sock,F_SETFL,flags);
     
-       MessageJSON myJSON;
-    myJSON.GetJSON();
+    MessageJSON myJSON;
+    const char* sendString = myJSON.GetJSON("BEEP","").c_str();
     
     /* Construct local address structure */
     memset(&broadcastAddr, 0, sizeof(broadcastAddr));   /* Zero out structure */

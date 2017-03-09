@@ -19,12 +19,13 @@
 #include <fstream>
 #include <algorithm>
 
+
 class MessageJSON {
 public:
     MessageJSON();
     MessageJSON(const MessageJSON& orig);
     virtual ~MessageJSON();
-    std::string GetJSON();
+    std::string GetJSON(std::string, std::string);
 private:
 
 };
