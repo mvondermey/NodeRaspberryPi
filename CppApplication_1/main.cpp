@@ -12,9 +12,9 @@
  */
 
 
-#include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/client.h>
-#include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/BroadcastSender.h>
-#include </home/mvondermey/NetBeansProjects/NodeRaspberryPi/CppApplication_1/BroadcastReceiver.h>
+#include "client.h"
+#include "BroadcastSender.h"
+#include "BroadcastReceiver.h"
 #include <stdlib.h>
 #include <iostream>    
 
