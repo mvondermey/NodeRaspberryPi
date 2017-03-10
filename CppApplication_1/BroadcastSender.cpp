@@ -48,7 +48,10 @@ BroadcastSender::BroadcastSender() {
     fcntl(sock,F_SETFL,flags);
     
     MessageJSON myJSON;
-    const char* sendString = myJSON.GetJSON("BEEP","").c_str();
+    std::string SendString = myJSON.GetJSON("BEEP","");
+    const char* sendString = SendString.c_str();
+    
+    //std::cout << "String ready " << SendString << std::endl;
     
     /* Construct local address structure */
     memset(&broadcastAddr, 0, sizeof(broadcastAddr));   /* Zero out structure */
