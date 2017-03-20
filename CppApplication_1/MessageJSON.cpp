@@ -17,6 +17,7 @@
 #include <rapidjson/writer.h>
 #include "MessageJSON.h"
 
+
 using namespace rapidjson;
 
 MessageJSON::MessageJSON() {
@@ -42,11 +43,22 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
     //
     //machineid.erase(machineid.length()-1);
     //
+    struct timeval tp;
+    gettimeofday(&tp,NULL);
+    printf("Sec %fn\n",(double)tp.tv_sec);
+    printf("Usec %f \n",(double)tp.tv_usec);
+    long int ms = tp.tv_sec*1000000 + tp.tv_usec;
+    char TimeStamp[256];
+    sprintf(TimeStamp,"%ld",ms);
+    //
     std::cout << machineid << "/1/" << std::endl;
     //
     rapidjson::Document json;
     json.SetObject();
+    json.AddMember("TimeStamp",Value(TimeStamp,json.GetAllocator()).Move(),json.GetAllocator());
+    json.AddMember("Message",Value(Message.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
     json.AddMember("UUID",Value(machineid.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
+       json.AddMember("Command",Value(Command.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
     //
     std::cout << machineid << "/2/" << std::endl;
     //

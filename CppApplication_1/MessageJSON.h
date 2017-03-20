@@ -18,7 +18,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
-
+#include <sys/time.h>
 
 class MessageJSON {
 public:

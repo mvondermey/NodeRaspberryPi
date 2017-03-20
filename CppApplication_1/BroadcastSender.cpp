@@ -48,8 +48,7 @@ BroadcastSender::BroadcastSender() {
     fcntl(sock,F_SETFL,flags);
     
     MessageJSON myJSON;
-    std::string SendString = myJSON.GetJSON("BEEP","");
-    const char* sendString = SendString.c_str();
+
     
     //std::cout << "String ready " << SendString << std::endl;
     
@@ -59,9 +58,12 @@ BroadcastSender::BroadcastSender() {
     broadcastAddr.sin_addr.s_addr = inet_addr(broadcastIP);/* Broadcast IP address */
     broadcastAddr.sin_port = htons(broadcastPort);         /* Broadcast port */
 
-    sendStringLen = strlen(sendString);  /* Find length of sendString */
+    
     for (;;) /* Run forever */
     {
+        std::string SendString = myJSON.GetJSON("BEEP","");
+        const char* sendString = SendString.c_str();
+        sendStringLen = strlen(sendString);  /* Find length of sendString */
          /* Broadcast sendString in datagram to clients every 3 seconds*/
          if (sendto(sock, sendString, sendStringLen, 0, (struct sockaddr *) 
                &broadcastAddr, sizeof(broadcastAddr)) != sendStringLen)
