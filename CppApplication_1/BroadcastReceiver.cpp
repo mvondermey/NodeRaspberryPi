@@ -22,7 +22,7 @@ BroadcastReceiver::BroadcastReceiver() {
     char recvString[MAXRECVSTRING+1]; /* Buffer for received string */
     int recvStringLen;                /* Length of received string */
 
-    broadcastPort = 8002;   /* First arg: broadcast port */
+    broadcastPort = 8003;   /* First arg: broadcast port */
 
     /* Create a best-effort datagram socket using UDP */
     if ((sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP)) < 0)
@@ -38,13 +38,16 @@ BroadcastReceiver::BroadcastReceiver() {
     if (bind(sock, (struct sockaddr *) &broadcastAddr, sizeof(broadcastAddr)) < 0)
         printf("bind() failed\n");
 
+    while (true){
+  //  
     /* Receive a single datagram from the server */
     if ((recvStringLen = recvfrom(sock, recvString, MAXRECVSTRING, 0, NULL, 0)) < 0)
         printf("recvfrom() failed\n");
-
+//
     recvString[recvStringLen] = '\0';
-    printf("Received: %s\n", recvString);    /* Print the received string */
-    
+    printf("BroadcastReceiver.Received: %s\n", recvString);    /* Print the received string */
+//
+    }
  
     
     close(sock);

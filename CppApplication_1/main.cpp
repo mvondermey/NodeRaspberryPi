@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
    
     //
     pthread_create(&BroadcastSender, NULL, BroadcastSenderF, (void *) tidS); 
-    //pthread_create(&BroadcastReceiver, NULL, BroadcastReceiverF, (void *) tidR); 
+    pthread_create(&BroadcastReceiver, NULL, BroadcastReceiverF, (void *) tidR); 
     //
     int input;
     std::cin >> input ;
