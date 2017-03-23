@@ -13,6 +13,7 @@
 
 #include "BroadcastReceiver.h"
 #include "MessageJSON.h"
+#include "MessageParser.h"
 
 BroadcastReceiver::BroadcastReceiver() {
     //
@@ -46,7 +47,10 @@ BroadcastReceiver::BroadcastReceiver() {
 //
     recvString[recvStringLen] = '\0';
     printf("BroadcastReceiver.Received: %s\n", recvString);    /* Print the received string */
-//
+    //
+    MessageParser mMessageParser;
+    mMessageParser.ParseMessage(recvString);
+    //
     }
  
     

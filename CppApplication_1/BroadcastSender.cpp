@@ -57,8 +57,8 @@ BroadcastSender::BroadcastSender() {
     broadcastAddr.sin_family = AF_INET;                 /* Internet address family */
     broadcastAddr.sin_addr.s_addr = inet_addr(broadcastIP);/* Broadcast IP address */
     broadcastAddr.sin_port = htons(broadcastPort);         /* Broadcast port */
-
-    
+//
+    //
     for (;;) /* Run forever */
     {
         std::string SendString = myJSON.GetJSON("BEEP","");
@@ -87,10 +87,10 @@ BroadcastSender::BroadcastSender() {
         sleep(3);   /* Avoids flooding the network */
     }
 }
-
+//
 BroadcastSender::BroadcastSender(const BroadcastSender& orig) {
 }
-
+//
 BroadcastSender::~BroadcastSender() {
 }
-
+//

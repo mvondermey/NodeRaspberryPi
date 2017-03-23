@@ -27,6 +27,7 @@ public:
     MessageParser(const MessageParser& orig);
     virtual ~MessageParser();
     void ParseMessage(std::string);
+    std::string ExtractUUID(std::string);
 private:
 
 };

@@ -12,14 +12,14 @@
  */
 
 #include "Singleton.h"
+#include "MessageParser.h"
 
 Singleton* Singleton::m_Instance = NULL;
-std::vector< std::pair<std::string,int> > mListConnections;
+std::vector<std::string> mListConnections;
 
 Singleton::Singleton() {
     //
 
-    //
 }
 
 Singleton::Singleton(const Singleton& orig) {
@@ -36,8 +36,41 @@ Singleton* Singleton::Instance(){
     //
 }
 
-std::vector<std::pair<std::string,int> >* Singleton::getConnections(){
+std::vector<std::string>* Singleton::getConnections(){
     //
     return &mListConnections;
+    //
+}
+
+//
+bool Singleton::CheckUUIDExists(std::string message){
+    //
+    bool result = false;
+    //
+    for (std::vector<std::string>::iterator it = mListConnections.begin() ; it != mListConnections.end(); ++it){
+    //
+        printf("Singleton::CheckUUIDExists %s \n",(*it).c_str());
+        //
+        MessageParser mMessageParser;
+        //
+        if ( mMessageParser.ExtractUUID(*it) == mMessageParser.ExtractUUID(message) ) {
+            printf("Already exists \n");
+            result = true;
+        }
+        //
+
+    //
+    }
+         return result;
+    //
+}
+//
+
+void Singleton::addConnections(std::string message){
+    //
+    if ( ! CheckUUIDExists(message) ){
+        mListConnections.push_back(message);
+        printf("MessageParser.addConnections Element added\n");
+    }
     //
 }

@@ -18,12 +18,18 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <string.h>   
 
 class Singleton {
+    //
+    //
 public:
+    std::string DeviceName = "RedRat";
+
     static Singleton* Instance();
-    static std::vector<std::pair<std::string,int> >* getConnections();
-    static void addConnections(std::string, int);
+    static std::vector<std::string>* getConnections();
+    static void addConnections(std::string);
+    static bool CheckUUIDExists(std::string message);
 private:
     Singleton();
     Singleton(const Singleton& orig);

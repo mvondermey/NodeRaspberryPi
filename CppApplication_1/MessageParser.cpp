@@ -12,6 +12,7 @@
  */
 
 #include "MessageParser.h"
+#include "Singleton.h"
 
 using namespace rapidjson;
 
@@ -22,6 +23,27 @@ MessageParser::MessageParser(const MessageParser& orig) {
 }
 
 MessageParser::~MessageParser() {
+}
+
+std::string MessageParser::ExtractUUID(std::string json){
+    //
+    //printf("ExtractUUID. %s",json);
+    //
+    Document document;
+    document.Parse(json.c_str());
+    //
+    if ( document.HasParseError() ) {
+        printf("MessageParser.ExtractUUID.ParseError \n");
+        printf("%s \n",json);
+        printf("Failed parsing json %s Offset: %d \n",GetParseError_En(document.GetParseError()),document.GetErrorOffset());
+    }
+    //
+    raspidjson:Value & results = document["UUID"];
+    std::string uuid = results.GetString();
+    //printf(" UUID: %s \n",uuid.c_str());
+    //
+    return uuid;
+    //
 }
 
 void  MessageParser::ParseMessage(std::string MessageToParse){
@@ -45,7 +67,7 @@ void  MessageParser::ParseMessage(std::string MessageToParse){
     document.Parse(json.c_str());
     //
     if ( document.HasParseError() ) {
-        printf("ParseError \n");
+        printf("MessageParser.ParseMessage.ParseError \n");
         printf("Failed parsing json %s Offset: %d \n",GetParseError_En(document.GetParseError()),document.GetErrorOffset());
     }
     //
@@ -53,5 +75,7 @@ void  MessageParser::ParseMessage(std::string MessageToParse){
     std::string message = results.GetString();
     printf(" Message: %s \n",message.c_str());
     //
-    //
+    if ( message == "BEEP"){
+        Singleton::Instance()->addConnections(json);
+    }
 }

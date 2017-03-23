@@ -19,6 +19,7 @@
 #include <fstream>
 #include <algorithm>
 #include <sys/time.h>
+#include "Singleton.h"
 
 class MessageJSON {
 public:

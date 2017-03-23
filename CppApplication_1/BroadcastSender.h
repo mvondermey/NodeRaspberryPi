@@ -21,7 +21,7 @@
 #include <string.h>     /* for memset() */
 #include <unistd.h>     /* for close() */
 #include <fcntl.h>
-
+#include "Singleton.h"
 
 
 
