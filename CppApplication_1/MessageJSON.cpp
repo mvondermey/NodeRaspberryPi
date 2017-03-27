@@ -97,7 +97,7 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
     json.AddMember("UUID",Value(machineid.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
     json.AddMember("Command",Value(Command.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
     json.AddMember("DeviceName",Value(DeviceName.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
-
+    json.AddMember("Temperature",Value(temperature.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
     //
     //std::cout << machineid << "/2/" << std::endl;
     //
