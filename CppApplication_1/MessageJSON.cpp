@@ -65,7 +65,7 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
     } else {
         printf("Readdir \n");
         while (pent == readdir(pdir)){
-            printf("%s \n", pent->d_name);
+            printf("%s \n", pent->d_name[0]);
         }
     }
     //
