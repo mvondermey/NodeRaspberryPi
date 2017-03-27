@@ -16,6 +16,7 @@
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/writer.h>
 #include "MessageJSON.h"
+#include <dirent.h>
 
 
 using namespace rapidjson;
@@ -54,6 +55,18 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
     //std::cout << machineid << "/1/" << std::endl;
     //
     std::string DeviceName = Singleton::Instance()->DeviceName;
+    //
+    DIR *pdir = NULL;
+    struct dirent *pent = NULL;
+    pdir = opendir("/sys/bus/w1/devices");
+    if ( pdir == NULL)
+    {
+        printf ("ERROR pdir \n");
+    } else {
+        while (pent == readdir(pdir)){
+            printf("%s \n", pent->d_name);
+        }
+    }
     //
     rapidjson::Document json;
     json.SetObject();
