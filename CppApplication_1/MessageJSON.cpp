@@ -67,7 +67,18 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
         printf("Readdir \n");
         //
         while (pent = readdir(pdir) ){
-            printf("%s \n", pent->d_name);
+            //
+            std::string DirectoryName = pent->d_name;
+            //
+            if ( DirectoryName.find("28-") != std::string::npos ) {
+                std::string myFile = DirectoryName+"w1_slave";
+                std::fstream infile("Tests");
+                std::string a,b;
+                while (infile >> a >> b){
+                    std::cout << " a= " << a << " b= " << b << std::endl;
+                }                
+            }
+            //
         }
     }
     //
