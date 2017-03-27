@@ -34,7 +34,7 @@ std::string MessageParser::ExtractUUID(std::string json){
     //
     if ( document.HasParseError() ) {
         printf("MessageParser.ExtractUUID.ParseError \n");
-        printf("%s \n",json);
+        printf("%s \n",json.c_str());
         printf("Failed parsing json %s Offset: %d \n",GetParseError_En(document.GetParseError()),document.GetErrorOffset());
     }
     //
