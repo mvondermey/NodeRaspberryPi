@@ -34,6 +34,7 @@ MessageJSON::~MessageJSON() {
 
 std::string MessageJSON::GetJSON(std::string Message, std::string Command){
 //
+    std::string temperature;
     std::ifstream ifs("/etc/machine-id");
     std::string machineid;
     getline(ifs,machineid, (char)ifs.eof());
@@ -79,7 +80,8 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
                 }else {
                     std::string a;
                     while (infile >> a ){
-                        std::cout << " a= " << a ;
+                        if ( a.find("t=") != std::string::npos ) temperature = a.substr(3);
+                        std::cout << "Temperature " << temperature;
                     }                
                 }
             //
