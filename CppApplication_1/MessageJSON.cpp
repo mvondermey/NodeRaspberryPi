@@ -58,14 +58,14 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
     //
     DIR *pdir = NULL;
     struct dirent *pent = NULL;
-    pdir = opendir("/sys/bus/w1/devices");
+    pdir = opendir("/sys/bus/w1/devices/");
     if ( pdir == NULL)
     {
         printf ("ERROR pdir \n");
     } else {
         printf("Readdir \n");
         while (pent == readdir(pdir)){
-            printf("%s \n", pent->d_name[0]);
+            printf("%s \n", pent->d_name);
         }
     }
     //
