@@ -71,7 +71,7 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
             std::string DirectoryName = pent->d_name;
             //
             if ( DirectoryName.find("28-") != std::string::npos ) {
-                std::string myFile = DirectoryName+"w1_slave";
+                std::string myFile = DirectoryName+"/w1_slave";
                 std::cout << "Reading File " << myFile << std::endl;
                 std::fstream infile("Tests");
                 std::string a,b;
