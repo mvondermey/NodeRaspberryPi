@@ -58,7 +58,7 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
     //
     DIR *pdir = NULL;
     struct dirent *pent = NULL;
-    pdir = opendir("/sys/bus/w1/devices/28-*");
+    pdir = opendir("/sys/bus/w1/devices/");
     if ( pdir == NULL)
     {
         printf ("ERROR pdir not found\n");
