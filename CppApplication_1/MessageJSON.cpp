@@ -79,7 +79,7 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
                 }else {
                     std::string a;
                     while (infile >> a ){
-                        std::cout << " a= " << std::endl;
+                        std::cout << " a= " << a ;
                     }                
                 }
             //
