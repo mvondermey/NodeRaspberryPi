@@ -80,8 +80,9 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
                 }else {
                     std::string a;
                     while (infile >> a ){
-                        if ( a.find("t=") != std::string::npos ) temperature = a.substr(3);
-                        std::cout << "Temperature " << temperature;
+                        if ( a.find("t=") != std::string::npos ) {temperature = a.substr(3);
+                            std::cout << "Temperature " << temperature std::endl;
+                        }
                     }                
                 }
             //
