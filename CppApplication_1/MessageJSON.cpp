@@ -73,15 +73,18 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
             if ( DirectoryName.find("28-") != std::string::npos ) {
                 std::string myFile = "/sys/bus/w1/devices/"+DirectoryName+"/w1_slave";
                 std::cout << "Reading File " << myFile << std::endl;
-                std::fstream infile(myFile.c_str());
-                if (! infile) std::cout << "Cannot open" << std::endl;
-                std::string a;
-                while (infile >> a ){
-                    std::cout << " a= " << std::endl;
-                }                
-            }
+                std::ifstream infile(myFile.c_str());
+                if (! infile) {
+                    std::cout << "Cannot open" << std::endl;
+                }else {
+                    std::string a;
+                    while (infile >> a ){
+                        std::cout << " a= " << std::endl;
+                    }                
+                }
             //
-        }
+            }
+           }
     }
     //
     rapidjson::Document json;
