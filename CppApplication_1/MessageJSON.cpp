@@ -61,10 +61,12 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
     pdir = opendir("/sys/bus/w1/devices/");
     if ( pdir == NULL)
     {
-        printf ("ERROR pdir \n");
+        printf ("ERROR pdir not found\n");
     } else {
+        //
         printf("Readdir \n");
-        while (pent == readdir(pdir)){
+        //
+        while (pent = readdir(pdir) ){
             printf("%s \n", pent->d_name);
         }
     }
