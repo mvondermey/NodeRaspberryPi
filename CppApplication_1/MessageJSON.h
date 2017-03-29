@@ -23,6 +23,7 @@
 
 class MessageJSON {
 public:
+    std::string setTemperature;
     MessageJSON();
     MessageJSON(const MessageJSON& orig);
     virtual ~MessageJSON();

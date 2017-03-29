@@ -22,8 +22,8 @@
 using namespace rapidjson;
 
 MessageJSON::MessageJSON() {
-    std::string Message;
-    std::string Command;
+
+    
 }
 
 MessageJSON::MessageJSON(const MessageJSON& orig) {
@@ -34,7 +34,7 @@ MessageJSON::~MessageJSON() {
 
 std::string MessageJSON::GetJSON(std::string Message, std::string Command){
 //
-    std::string temperature;
+    std::string currentTemperature;
     std::ifstream ifs("/etc/machine-id");
     std::string machineid;
     getline(ifs,machineid, (char)ifs.eof());
@@ -53,7 +53,6 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
     char TimeStamp[256];
     sprintf(TimeStamp,"%ld",ms);
     //
-    //std::cout << machineid << "/1/" << std::endl;
     //
     std::string DeviceName = Singleton::Instance()->DeviceName;
     //
@@ -80,8 +79,8 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
                 }else {
                     std::string a;
                     while (infile >> a ){
-                        if ( a.find("t=") != std::string::npos ) {temperature = a.substr(2);
-                            std::cout << "Temperature " << temperature << std::endl;
+                        if ( a.find("t=") != std::string::npos ) {currentTemperature = a.substr(2);
+                            std::cout << "Temperature " << currentTemperature << std::endl;
                         }
                     }                
                 }
@@ -97,21 +96,14 @@ std::string MessageJSON::GetJSON(std::string Message, std::string Command){
     json.AddMember("UUID",Value(machineid.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
     json.AddMember("Command",Value(Command.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
     json.AddMember("DeviceName",Value(DeviceName.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
-    json.AddMember("Temperature",Value(temperature.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
-    //
-    //std::cout << machineid << "/2/" << std::endl;
+    json.AddMember("CurrentTemperature",Value(currentTemperature.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
+    json.AddMember("SetTemperature",Value(setTemperature.c_str(),json.GetAllocator()).Move(),json.GetAllocator());
     //
     StringBuffer buffer;
     Writer<StringBuffer> writer(buffer);
     json.Accept(writer);
     //
-    //std::cout << machineid << "/3/" << std::endl;
-    //
     std::string jsonstring =  buffer.GetString();
-    //
-    //std::cout << "String to send "<< jsonstring << std::endl;
-    //
-    //std::cout << machineid << "/4/" << std::endl;
     //
     return jsonstring;
     //
